@@ -143,7 +143,6 @@ namespace SWAPI_POC_Core.Infrastructure.ApiClients.SWAPI
             {
                 serializedParameters = "?" + SerializeDictionary(parameters);
             }
-
             string json = await Request(string.Format("{0}{1}{2}", apiUrl, endpoint, serializedParameters), HttpMethod.GET);
             SharpEntityResults<T> swapiResponse = JsonConvert.DeserializeObject<SharpEntityResults<T>>(json);
 

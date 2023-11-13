@@ -16,4 +16,9 @@
     <PackageReference Include="coverlet.collector" Version="3.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SWAPI_POC\SWAPI_POC.csproj" />
+    <ProjectReference Include="..\SWAPI_POC_Core\SWAPI_POC_Core.csproj" />
+  </ItemGroup>
+
 </Project>

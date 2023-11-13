@@ -2,7 +2,7 @@
 using SWAPI_POC_Core.Infrastructure.ApiClients.SWAPI.Models;
 using SWAPI_POC_Core.Interfaces;
 using SWAPI_POC_Core.Models;
-
+using System.Diagnostics;
 
 namespace SWAPI_POC_Core.Repository
 {
@@ -38,26 +38,21 @@ namespace SWAPI_POC_Core.Repository
             if (films != null && films.results.Any())
             {
                 var film = films.results.Where(x=>x.episode_id == 1).FirstOrDefault();
-                var tasks = new List<Task<Specie>>();
-                foreach (var specie in film.species)
+                var tasks = film.species.Select(specie =>
                 {
                     var slashArr = specie.Split("/");
-                    var specieDetailTask = _swapiService.GetSpecie(slashArr[slashArr.Length - 2]);
-                    tasks.Add(specieDetailTask);
-                   
-                }
-                await Task.WhenAll(tasks);
-                foreach (var specieDetailTask in tasks)
-                {
-                    var specieDetail = specieDetailTask.Result;
-                    if (specieDetail != null)
-                    {
-                        response.Data.Add(specieDetail.classification);
-                    }
+                    var specId = slashArr[slashArr.Length - 2];
+                    return _swapiService.GetSpecie(specId);
+                });
 
-                }
-               
-                response.Data = response.Data.Distinct().ToList();
+                var speciesDetails = await Task.WhenAll(tasks);
+
+                response.Data = speciesDetails
+                                    .Where(specie => specie != null)
+                                    .Select(specie => specie.classification)
+                                    .Distinct()
+                                    .ToList();
+
                 response.Success = true;
             }
             else
@@ -86,24 +81,17 @@ namespace SWAPI_POC_Core.Repository
             if (personDetail != null && personDetail.results.Any())
             {
                 var starships = personDetail.results.First().starships;
-                
-                foreach (var starship in starships)
+
+                IEnumerable<Task<Starship>> starshipTasks = starships.Select(starshipUrl =>
                 {
-                    var slashArr = starship.Split("/");
-                    var startShipResult = _swapiService.GetStarship(slashArr[slashArr.Length - 2]);
-                    tasks.Add(startShipResult);
-                   
-                }
-                await Task.WhenAll(tasks);
-               
-                foreach (var startShipTask in tasks)
-                {
-                    var startShipResult = startShipTask.Result;
-                    if (startShipResult != null)
-                    {
-                        response.Data.Add(startShipResult);
-                    }
-                }
+                    var slashArr = starshipUrl.Split("/");
+                    var starshipId = slashArr[slashArr.Length - 2];
+                    return _swapiService.GetStarship(starshipId);
+                });
+
+                var starshipResults = await Task.WhenAll(starshipTasks);
+
+                response.Data.AddRange(starshipResults.Where(result => result != null));
                 response.Success = true;
             }
             else
@@ -111,7 +99,6 @@ namespace SWAPI_POC_Core.Repository
                 response.Success = false;
                 response.Message = "People not found";
             }
-
             return response;
         }
 
@@ -125,23 +112,26 @@ namespace SWAPI_POC_Core.Repository
         {
             SharpEntityResults<Planet> planets = new SharpEntityResults<Planet>();
             DataResponse<string> response = new();
-            Int64 totalPopulation = 0, populationPlanet = 0;
+            Int64 totalPopulation = 0, populationPlanet = 0, pageSize = 10;
             string pageNumber = "1";
+            
             planets = await _swapiService.GetAllPlanets(pageNumber);
             totalPopulation += planets.results.Where(item => Int64.TryParse(item.population, out populationPlanet))
                                                      .Sum(item => Convert.ToInt64(item.population));
 
             Int64 count = planets.count;
-            if(count> 10)
+
+            if(count > pageSize)
             {
-                decimal totalPages = Math.Ceiling((decimal)count / 10) - 1;
+                decimal totalPages = Math.Ceiling((decimal)count / pageSize);
                 var tasks = new List<Task<SharpEntityResults<Planet>>>();
 
-                for (int i = 2; i < totalPages + 2; i++)
+                for (int i = 2; i <= totalPages; i++)
                 {
                     var nextPlanets = _swapiService.GetAllPlanets(i.ToString());
                     tasks.Add(nextPlanets);
                 }
+
                 await Task.WhenAll(tasks);
 
                 foreach (var task in tasks)
@@ -153,7 +143,6 @@ namespace SWAPI_POC_Core.Repository
                                                                  .Sum(item => Convert.ToInt64(item.population));
                     }
                 }
-            
             }
 
             response.Success = true;

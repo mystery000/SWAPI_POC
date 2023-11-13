@@ -22,3 +22,15 @@ E:\work\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\SWAPI_POC_Core.dll
 E:\work\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\refint\SWAPI_POC_Core.dll
 E:\work\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\SWAPI_POC_Core.pdb
 E:\work\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\ref\SWAPI_POC_Core.dll
+C:\Users\K\Downloads\Coding Assessment\SWAPI_POC\SWAPI_POC_Core\bin\Debug\net7.0\SWAPI_POC_Core.deps.json
+C:\Users\K\Downloads\Coding Assessment\SWAPI_POC\SWAPI_POC_Core\bin\Debug\net7.0\SWAPI_POC_Core.dll
+C:\Users\K\Downloads\Coding Assessment\SWAPI_POC\SWAPI_POC_Core\bin\Debug\net7.0\SWAPI_POC_Core.pdb
+C:\Users\K\Downloads\Coding Assessment\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\SWAPI_POC_Core.csproj.AssemblyReference.cache
+C:\Users\K\Downloads\Coding Assessment\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\SWAPI_POC_Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\K\Downloads\Coding Assessment\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\SWAPI_POC_Core.AssemblyInfoInputs.cache
+C:\Users\K\Downloads\Coding Assessment\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\SWAPI_POC_Core.AssemblyInfo.cs
+C:\Users\K\Downloads\Coding Assessment\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\SWAPI_POC_Core.csproj.CoreCompileInputs.cache
+C:\Users\K\Downloads\Coding Assessment\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\SWAPI_POC_Core.dll
+C:\Users\K\Downloads\Coding Assessment\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\refint\SWAPI_POC_Core.dll
+C:\Users\K\Downloads\Coding Assessment\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\SWAPI_POC_Core.pdb
+C:\Users\K\Downloads\Coding Assessment\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\ref\SWAPI_POC_Core.dll
