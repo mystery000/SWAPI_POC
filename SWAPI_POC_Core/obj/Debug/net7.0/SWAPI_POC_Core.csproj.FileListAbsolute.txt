@@ -1,0 +1,24 @@
+C:\Users\PRANAV PATHAK\source\repos\SWAPI_POC\SWAPI_POC_Core\bin\Debug\net7.0\SWAPI_POC_Core.deps.json
+C:\Users\PRANAV PATHAK\source\repos\SWAPI_POC\SWAPI_POC_Core\bin\Debug\net7.0\SWAPI_POC_Core.dll
+C:\Users\PRANAV PATHAK\source\repos\SWAPI_POC\SWAPI_POC_Core\bin\Debug\net7.0\SWAPI_POC_Core.pdb
+C:\Users\PRANAV PATHAK\source\repos\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\SWAPI_POC_Core.csproj.AssemblyReference.cache
+C:\Users\PRANAV PATHAK\source\repos\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\SWAPI_POC_Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PRANAV PATHAK\source\repos\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\SWAPI_POC_Core.AssemblyInfoInputs.cache
+C:\Users\PRANAV PATHAK\source\repos\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\SWAPI_POC_Core.AssemblyInfo.cs
+C:\Users\PRANAV PATHAK\source\repos\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\SWAPI_POC_Core.csproj.CoreCompileInputs.cache
+C:\Users\PRANAV PATHAK\source\repos\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\SWAPI_POC_Core.dll
+C:\Users\PRANAV PATHAK\source\repos\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\refint\SWAPI_POC_Core.dll
+C:\Users\PRANAV PATHAK\source\repos\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\SWAPI_POC_Core.pdb
+C:\Users\PRANAV PATHAK\source\repos\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\ref\SWAPI_POC_Core.dll
+E:\work\SWAPI_POC\SWAPI_POC_Core\bin\Debug\net7.0\SWAPI_POC_Core.deps.json
+E:\work\SWAPI_POC\SWAPI_POC_Core\bin\Debug\net7.0\SWAPI_POC_Core.dll
+E:\work\SWAPI_POC\SWAPI_POC_Core\bin\Debug\net7.0\SWAPI_POC_Core.pdb
+E:\work\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\SWAPI_POC_Core.csproj.AssemblyReference.cache
+E:\work\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\SWAPI_POC_Core.GeneratedMSBuildEditorConfig.editorconfig
+E:\work\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\SWAPI_POC_Core.AssemblyInfoInputs.cache
+E:\work\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\SWAPI_POC_Core.AssemblyInfo.cs
+E:\work\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\SWAPI_POC_Core.csproj.CoreCompileInputs.cache
+E:\work\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\SWAPI_POC_Core.dll
+E:\work\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\refint\SWAPI_POC_Core.dll
+E:\work\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\SWAPI_POC_Core.pdb
+E:\work\SWAPI_POC\SWAPI_POC_Core\obj\Debug\net7.0\ref\SWAPI_POC_Core.dll
