@@ -21,7 +21,8 @@ namespace SWAPI_POC.Resources.Swapi.Operations
         /// Response for the command.
         /// </summary>
         public class QueryResponse : DataResponse<List<string>>
-        { }
+        {
+        }
 
         /// <summary>
         /// Handler for the command.

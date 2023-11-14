@@ -22,7 +22,8 @@ namespace SWAPI_POC.Resources.Swapi.Operations
         /// Represents the response of the command.
         /// </summary>
         public class QueryResponse : DataResponse<List<Starship>>
-        { }
+        { 
+        }
 
         /// <summary>
         /// Represents the handler for the command.

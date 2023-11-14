@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SWAPI_POC", "SWAPI_POC\SWAP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SWAPI_POC_Core", "SWAPI_POC_Core\SWAPI_POC_Core.csproj", "{87E300B1-4507-49E3-B1D5-ECFE0F0AE9E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SWAPI_POC.Tests", "SWAPI_POCTests1\SWAPI_POC.Tests.csproj", "{1CA31ADF-4729-4905-88C9-B23C7534B6E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{87E300B1-4507-49E3-B1D5-ECFE0F0AE9E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87E300B1-4507-49E3-B1D5-ECFE0F0AE9E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87E300B1-4507-49E3-B1D5-ECFE0F0AE9E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CA31ADF-4729-4905-88C9-B23C7534B6E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CA31ADF-4729-4905-88C9-B23C7534B6E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CA31ADF-4729-4905-88C9-B23C7534B6E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CA31ADF-4729-4905-88C9-B23C7534B6E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

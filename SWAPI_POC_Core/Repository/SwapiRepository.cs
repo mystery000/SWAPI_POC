@@ -2,6 +2,7 @@
 using SWAPI_POC_Core.Infrastructure.ApiClients.SWAPI.Models;
 using SWAPI_POC_Core.Interfaces;
 using SWAPI_POC_Core.Models;
+using System.Diagnostics;
 
 namespace SWAPI_POC_Core.Repository
 {
@@ -31,7 +32,7 @@ namespace SWAPI_POC_Core.Repository
         {
             DataResponse<List<string>> response = new();
             response.Data = new List<string>();
-
+            Stopwatch tw = Stopwatch.StartNew();
             var films = await _swapiService.GetAllFilms();
 
             if (films != null && films.results.Any())
@@ -69,7 +70,8 @@ namespace SWAPI_POC_Core.Repository
                 response.Success = false;
                 response.Message = "Film not found";
             }
-
+            tw.Stop();
+            Console.WriteLine($"Fetched all species {tw.ElapsedMilliseconds}(ms)");
             return response;
         }
 
@@ -84,7 +86,7 @@ namespace SWAPI_POC_Core.Repository
         {
             DataResponse<List<Starship>> response = new();
             response.Data = new List<Starship>();
-
+            Stopwatch tw = Stopwatch.StartNew();
             var personDetail = await _swapiService.GetPeopleByName(personName);
             var tasks = new List<Task<Starship>>();
             if (personDetail != null && personDetail.results.Any())
@@ -108,6 +110,8 @@ namespace SWAPI_POC_Core.Repository
                 response.Success = false;
                 response.Message = "People not found";
             }
+            tw.Stop();
+            Console.WriteLine($"Fetched all starshipsByPersonName {tw.ElapsedMilliseconds}(ms)");
             return response;
         }
 
@@ -123,7 +127,7 @@ namespace SWAPI_POC_Core.Repository
             DataResponse<string> response = new();
             Int64 totalPopulation = 0, populationPlanet = 0, pageSize = 10;
             string pageNumber = "1";
-            
+            Stopwatch tw = Stopwatch.StartNew();
             planets = await _swapiService.GetAllPlanets(pageNumber);
             totalPopulation += planets.results.Where(item => Int64.TryParse(item.population, out populationPlanet))
                                                      .Sum(item => Convert.ToInt64(item.population));
@@ -157,6 +161,9 @@ namespace SWAPI_POC_Core.Repository
             response.Success = true;
             response.Data = totalPopulation.ToString();
             response.Message = "Population not found";
+
+            tw.Stop();
+            Console.WriteLine($"Fetched total population {tw.ElapsedMilliseconds}(ms)");
 
             return response;
         }

@@ -113,13 +113,18 @@ namespace SWAPI_POC_Core.Infrastructure.ApiClients.SWAPI
         /// </returns>
         private async Task<T> GetSingle<T>(string endpoint, Dictionary<string, string> parameters = null) where T : SharpEntity
         {
+            Stopwatch sw = Stopwatch.StartNew();
             string serializedParameters = "";
             if (parameters != null)
             {
                 serializedParameters = "?" + SerializeDictionary(parameters);
             }
 
-            return await GetSingleByUrl<T>(url: string.Format("{0}{1}{2}", apiUrl, endpoint, serializedParameters));
+            var result = await GetSingleByUrl<T>(url: string.Format("{0}{1}{2}", apiUrl, endpoint, serializedParameters));
+
+            sw.Stop();
+            Console.WriteLine($"{endpoint} {sw.ElapsedMilliseconds}(ms)");
+            return result;
         }
 
         /// <summary>
@@ -146,6 +151,7 @@ namespace SWAPI_POC_Core.Infrastructure.ApiClients.SWAPI
         /// </returns>
         private async Task<SharpEntityResults<T>> GetMultiple<T>(string endpoint, Dictionary<string, string> parameters) where T : SharpEntity
         {
+            Stopwatch sw = Stopwatch.StartNew();
             string serializedParameters = "";
             if (parameters != null)
             {
@@ -153,6 +159,9 @@ namespace SWAPI_POC_Core.Infrastructure.ApiClients.SWAPI
             }
             string json = await Request(string.Format("{0}{1}{2}", apiUrl, endpoint, serializedParameters), HttpMethod.GET);
             SharpEntityResults<T> swapiResponse = JsonConvert.DeserializeObject<SharpEntityResults<T>>(json);
+
+            sw.Stop();
+            Console.WriteLine($"{endpoint} {sw.ElapsedMilliseconds}(ms)");
 
             return swapiResponse;
         }

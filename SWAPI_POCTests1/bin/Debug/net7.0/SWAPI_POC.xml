@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SWAPI_POC</name>
+    </assembly>
+    <members>
+        <member name="T:SWAPI_POC.Behaviours.ValidationBehaviour`2">
+            <summary>
+            Represents the MediatR pipeline behavior to run validation logic before the handlers handle the request.
+            </summary>
+            <typeparam name="TRequest">The type of the request.</typeparam>
+            <typeparam name="TResponse">The type of the response.</typeparam>
+        </member>
+        <member name="M:SWAPI_POC.Behaviours.ValidationBehaviour`2.#ctor(System.Collections.Generic.IEnumerable{FluentValidation.IValidator{`0}})">
+            <summary>
+            CTOR
+            </summary>
+            <param name="validators">The validators used for validating the request.</param>
+        </member>
+        <member name="M:SWAPI_POC.Behaviours.ValidationBehaviour`2.Handle(`0,MediatR.RequestHandlerDelegate{`1},System.Threading.CancellationToken)">
+            <summary>
+            Handles the request by validating it before passing it to the next handler in the pipeline.
+            </summary>
+            <param name="request">The request to be validated.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="next">The next handler in the pipeline.</param>
+            <returns>
+            A task that represents the asynchronous operation and contains the response of the request.
+            </returns>
+        </member>
+        <member name="M:SWAPI_POC.Controllers.SwapiController.#ctor(MediatR.IMediator)">
+            <summary>
+            CTOR
+            </summary>
+            <param name="mediator">The Mediator used for sending requests and receiving responses.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when mediator is null.</exception>
+        </member>
+        <member name="M:SWAPI_POC.Controllers.SwapiController.GetAllStarshipsByPersonName(SWAPI_POC.Resources.Swapi.Operations.GetStarships.GetStarshipsCommand)">
+            <summary>
+            Retrieves all starships associated with a person name.
+            </summary>
+            <returns>
+            The IActionResult representing the response.
+            </returns>
+            <param name="limit" example="[2,10]"></param>
+        </member>
+        <member name="M:SWAPI_POC.Controllers.SwapiController.GetAllSpeciesClassification">
+            <summary>
+            Retrieves all species classifications.
+            </summary>
+            <returns>
+            The IActionResult representing the response.
+            </returns>
+        </member>
+        <member name="M:SWAPI_POC.Controllers.SwapiController.GetTotalPopulationOfAllPlanets">
+            <summary>
+            Retrieves the total population of all planets.
+            </summary>
+            <returns>
+            <remarks>Return the total population of all planets in the Galaxy</remarks>
+            The IActionResult representing the response.
+            </returns>
+        </member>
+        <member name="T:SWAPI_POC.Resources.Swapi.Operations.GetAllSpecies">
+            <summary>
+            Represents the operation to get all species.
+            </summary>
+        </member>
+        <member name="T:SWAPI_POC.Resources.Swapi.Operations.GetAllSpecies.GetAllSpeciesCommand">
+            <summary>
+            Command to get all species.
+            </summary>
+        </member>
+        <member name="T:SWAPI_POC.Resources.Swapi.Operations.GetAllSpecies.QueryResponse">
+            <summary>
+            Response for the command.
+            </summary>
+        </member>
+        <member name="T:SWAPI_POC.Resources.Swapi.Operations.GetAllSpecies.CommandHandler">
+            <summary>
+            Handler for the command.
+            </summary>
+        </member>
+        <member name="M:SWAPI_POC.Resources.Swapi.Operations.GetAllSpecies.CommandHandler.#ctor(SWAPI_POC_Core.Interfaces.ISwapiRepository)">
+            <summary>
+            CTOR
+            </summary>
+            <param name="swapiRepository">The SWAPI repository used for retrieving species data.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when swapiRepository is null.</exception>
+        </member>
+        <member name="M:SWAPI_POC.Resources.Swapi.Operations.GetAllSpecies.CommandHandler.Handle(SWAPI_POC.Resources.Swapi.Operations.GetAllSpecies.GetAllSpeciesCommand,System.Threading.CancellationToken)">
+            <summary>
+            Handles the GetAllSpeciesCommand and returns the QueryResponse.
+            </summary>
+            <param name="command">The GetAllSpeciesCommand to handle.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>
+            The QueryResponse.
+            </returns>
+        </member>
+        <member name="T:SWAPI_POC.Resources.Swapi.Operations.GetStarships">
+            <summary>
+            Represents the operation to get starships by person name.
+            </summary>
+        </member>
+        <member name="T:SWAPI_POC.Resources.Swapi.Operations.GetStarships.GetStarshipsCommand">
+            <summary>
+            Represents the command to get starships by person name.
+            </summary>
+        </member>
+        <member name="T:SWAPI_POC.Resources.Swapi.Operations.GetStarships.QueryResponse">
+            <summary>
+            Represents the response of the command.
+            </summary>
+        </member>
+        <member name="T:SWAPI_POC.Resources.Swapi.Operations.GetStarships.CommandHandler">
+            <summary>
+            Represents the handler for the command.
+            </summary>
+        </member>
+        <member name="M:SWAPI_POC.Resources.Swapi.Operations.GetStarships.CommandHandler.#ctor(SWAPI_POC_Core.Interfaces.ISwapiRepository)">
+            <summary>
+            CTOR
+            </summary>
+            <param name="swapiRepository">The repository used for retrieving data from SWAPI.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when swapiRepository is null.</exception>
+        </member>
+        <member name="M:SWAPI_POC.Resources.Swapi.Operations.GetStarships.CommandHandler.Handle(SWAPI_POC.Resources.Swapi.Operations.GetStarships.GetStarshipsCommand,System.Threading.CancellationToken)">
+            <summary>
+            Handles the GetStarshipsCommand by retrieving starships from SWAPI based on a person name.
+            </summary>
+            <param name="command">The command containing the person name.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A task that represents the asynchronous operation and contains the response of the command.</returns>
+        </member>
+        <member name="T:SWAPI_POC.Resources.Swapi.Operations.GetTotalPopulation">
+            <summary>
+            Represents the operation to get the total population.
+            </summary>
+        </member>
+        <member name="T:SWAPI_POC.Resources.Swapi.Operations.GetTotalPopulation.GetTotalPopulationCommand">
+            <summary>
+            Command to get the total population.
+            </summary>
+        </member>
+        <member name="T:SWAPI_POC.Resources.Swapi.Operations.GetTotalPopulation.QueryResponse">
+            <summary>
+            Response for the command.
+            </summary>
+        </member>
+        <member name="T:SWAPI_POC.Resources.Swapi.Operations.GetTotalPopulation.CommandHandler">
+            <summary>
+            Handler for the command.
+            </summary>
+        </member>
+        <member name="M:SWAPI_POC.Resources.Swapi.Operations.GetTotalPopulation.CommandHandler.#ctor(SWAPI_POC_Core.Interfaces.ISwapiRepository)">
+            <summary>
+            Initializes a new instance of the CommandHandler class with the specified ISwapiRepository.
+            </summary>
+            <param name="swapiRepository">The SWAPI repository used for retrieving data.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when swapiRepository is null.</exception>
+        </member>
+        <member name="M:SWAPI_POC.Resources.Swapi.Operations.GetTotalPopulation.CommandHandler.Handle(SWAPI_POC.Resources.Swapi.Operations.GetTotalPopulation.GetTotalPopulationCommand,System.Threading.CancellationToken)">
+            <summary>
+            Handles the GetTotalPopulationCommand and returns the QueryResponse.
+            </summary>
+            <param name="command">The GetTotalPopulationCommand to handle.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>
+            The QueryResponse.
+            </returns>
+        </member>
+    </members>
+</doc>
