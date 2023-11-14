@@ -5,7 +5,8 @@ using System.Reflection;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.SetupOptions(builder.Configuration);
-
+// Add Caching Services
+builder.Services.AddMemoryCache();
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();

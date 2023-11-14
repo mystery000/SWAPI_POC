@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using SWAPI_POC_Core.Configuration;
 using SWAPI_POC_Core.Infrastructure.ApiClients.SWAPI.Models;
@@ -13,6 +14,7 @@ namespace SWAPI_POC_Core.Infrastructure.ApiClients.SWAPI
     {
         private readonly SWAPISettings _sWAPISettings;
         private readonly string apiUrl;
+        private readonly IMemoryCache _cache;
         private enum HttpMethod
         {
             GET,
@@ -23,10 +25,11 @@ namespace SWAPI_POC_Core.Infrastructure.ApiClients.SWAPI
         /// CTOR
         /// </summary>
         /// <param name="sWAPISettings">The SWAPI settings injected via dependency injection.</param>
-        public SWAPIService(IOptions<SWAPISettings> sWAPISettings)
+        public SWAPIService(IOptions<SWAPISettings> sWAPISettings, IMemoryCache memoryCache)
         {
             _sWAPISettings = sWAPISettings.Value;
             apiUrl = _sWAPISettings.BaseURL;
+            _cache = memoryCache;
         }
 
         #region Private
@@ -56,6 +59,10 @@ namespace SWAPI_POC_Core.Infrastructure.ApiClients.SWAPI
         /// </returns>
         private async Task<string> Request(string url, HttpMethod httpMethod, string data, bool isProxyEnabled)
         {
+            if(_cache.TryGetValue(url, out string cachedData))
+            {
+                return cachedData;
+            }
             string result = string.Empty;
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
             httpWebRequest.Method = httpMethod.ToString();
@@ -74,6 +81,7 @@ namespace SWAPI_POC_Core.Infrastructure.ApiClients.SWAPI
             result = reader.ReadToEnd();
             reader.Dispose();
 
+            _cache.Set(url, result, TimeSpan.FromMinutes(5));
             return result;
         }
 

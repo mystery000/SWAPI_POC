@@ -2,7 +2,6 @@
 using SWAPI_POC_Core.Infrastructure.ApiClients.SWAPI.Models;
 using SWAPI_POC_Core.Interfaces;
 using SWAPI_POC_Core.Models;
-using System.Diagnostics;
 
 namespace SWAPI_POC_Core.Repository
 {
@@ -38,22 +37,32 @@ namespace SWAPI_POC_Core.Repository
             if (films != null && films.results.Any())
             {
                 var film = films.results.Where(x=>x.episode_id == 1).FirstOrDefault();
-                var tasks = film.species.Select(specie =>
+
+                if(film == null)
                 {
-                    var slashArr = specie.Split("/");
-                    var specId = slashArr[slashArr.Length - 2];
-                    return _swapiService.GetSpecie(specId);
-                });
+                    response.Success = false;
+                    response.Message = "Episode not found!";
+                }
+                else
+                {
 
-                var speciesDetails = await Task.WhenAll(tasks);
+                    var tasks = film.species.Select(specie =>
+                    {
+                        var slashArr = specie.Split("/");
+                        var specId = slashArr[slashArr.Length - 2];
+                        return _swapiService.GetSpecie(specId);
+                    });
 
-                response.Data = speciesDetails
-                                    .Where(specie => specie != null)
-                                    .Select(specie => specie.classification)
-                                    .Distinct()
-                                    .ToList();
+                    var speciesDetails = await Task.WhenAll(tasks);
 
-                response.Success = true;
+                    response.Data = speciesDetails
+                                        .Where(specie => specie != null)
+                                        .Select(specie => specie.classification)
+                                        .Distinct()
+                                        .ToList();
+
+                    response.Success = true;
+                }
             }
             else
             {

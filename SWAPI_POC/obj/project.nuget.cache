@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vW4LVOpj3uEopUnRcxfTGbrpC/ZWOJsgZdzPwxjXKKKO+6PjhXq5aVufXz9w0PEf9ey5pBe+iN52aGhi40CmPw==",
+  "dgSpecHash": "PYqARoEnwQC7VkfuedATIWUdwoboJv3tB2ZPtMI7duvpuv0bp+jGWLQDQeOgMVKDDkn2yNg2rhODIno7lpaaYA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\K\\Downloads\\Coding Assessment\\SWAPI_POC\\SWAPI_POC\\SWAPI_POC.csproj",
+  "projectFilePath": "C:\\Users\\K\\Downloads\\Bruno\\Coding Assessment\\SWAPI_POC\\SWAPI_POC\\SWAPI_POC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\K\\.nuget\\packages\\fluentvalidation\\11.8.0\\fluentvalidation.11.8.0.nupkg.sha512",
     "C:\\Users\\K\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",

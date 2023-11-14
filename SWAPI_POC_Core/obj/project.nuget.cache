@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "D+f8gXn0C7dAS/nUd15Tvmi0QNzrPSgtUKVYdqp+slz41MRinPCR1wPzVXEC6G9Pt6dEoH+5n9+89MLlrel6wg==",
+  "dgSpecHash": "yyCnGwDelxcmuWFlUChuf7c1HV7BokYdv4unH5gCkhy6zikS8+aTAq1OtzyKdMvJzbN6Jy/1xXe0M/2qk0lhWg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\K\\Downloads\\Coding Assessment\\SWAPI_POC\\SWAPI_POC_Core\\SWAPI_POC_Core.csproj",
+  "projectFilePath": "C:\\Users\\K\\Downloads\\Bruno\\Coding Assessment\\SWAPI_POC\\SWAPI_POC_Core\\SWAPI_POC_Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\K\\.nuget\\packages\\microsoft.aspnet.webapi.client\\4.0.20710\\microsoft.aspnet.webapi.client.4.0.20710.nupkg.sha512",
     "C:\\Users\\K\\.nuget\\packages\\microsoft.aspnet.webapi.core\\4.0.20710\\microsoft.aspnet.webapi.core.4.0.20710.nupkg.sha512",
